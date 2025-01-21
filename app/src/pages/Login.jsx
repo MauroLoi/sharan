@@ -1,6 +1,7 @@
 import React from 'react'
 import Montagna from '../assets/Montagna-cinese.jpg';
 import logo from "../assets/logo.svg";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -24,7 +25,7 @@ const Login = () => {
                         </div>
                         <div className="border-t-2 border-gray-300">
                             <br /><span>Non hai ancora un account? </span>
-                            <a className="text-primary" href="Link di registrazione"> Iscriviti Ora</a>
+                            <Link to="/register" className="text-violet-700" href="Link di registrazione"> Iscriviti Ora</Link>
                         </div>
                     </div>
                 </div>
