@@ -72,7 +72,7 @@ const Register = () => {
                             </label>
                             <input type="password" id="confirmPassword" name="confirmPassword" value={form.confirmPassword} onInput={handleInput} className="mt-1 shadow-md bg-slate-50 border border-slate-100 text-gray-900 text-sm rounded-lg block w-full p-2.5 hover:border-slate-500 focus:outline-none focus:ring-0" />
                         </div>
-                        <div className="flex items-center justify-between mt-6">
+                        <div className="flex items-center justify-end mt-6">
                             <button type="submit" className="p-2 bg-secondary text-slate-50 py-2.5 rounded-lg text-sm font-medium hover:bg-primary hover:text-secondary">
                                 Registrati
                             </button>
