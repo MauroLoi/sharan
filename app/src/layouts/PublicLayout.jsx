@@ -9,6 +9,7 @@ const PublicLayout = () => {
   if(excludedPathname.includes(location.pathname)) {
     return <Outlet />
   }
+  
   return (
     <>
         <Navbar />
