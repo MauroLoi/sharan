@@ -1,22 +1,54 @@
 import React from 'react'
 import Montagna from '../assets/Montagna-cinese.jpg';
 import logo from "../assets/logo.svg";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { getDataFromEntries } from '../utilities/form';
+import { toast } from 'react-toastify';
+import { SDK } from '../sdk';
+import { useDispatch } from 'react-redux';
+import { login } from '../store/slices/authSlice';
 
 const Login = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const payload = getDataFromEntries(e.target);
+
+        try {
+            const data = await SDK.auth.login(payload);
+
+            console.log(data);
+
+            dispatch(login(data));
+            navigate("/app");
+        } catch(err) {
+            console.log(err);
+            toast.error("le credenziali inserite non sono valide")
+        }
+    }
+
     return (
         <>
             <div className='flex w-screen h-screen overflow-hidden'>
                 <div className='flex flex-1 justify-center items-center h-screen bg-slate-50'>
-                    <img src={logo} alt="logo" className="fixed top-2 left-2 w-24 h-24" />
+                    <Link to="/">
+                        <img src={logo} alt="logo" className="fixed top-2 left-2 w-24 h-24" />
+                    </Link>
                     <div className='w-full max-w-md p-6'>
                         <div className='form-login'>
                             <h2 className='text-secondary'>Bentornato!</h2><br />
-                            <form action="">
-                                <label htmlFor="email" className="block text-sm font-medium text-secondary">Indirizzo Email:</label><br />
-                                <input className="mt-1 shadow-md bg-slate-50 border border-slate-100 text-gray-900 text-sm rounded-lg block w-full p-2.5 hover:border-slate-500 focus:outline-none focus:ring-0" type="email" id="email" name="email" required /> <br /><br />
-                                <label htmlFor="password" className="block text-sm font-medium text-secondary">Password:</label><br />
-                                <input className="mt-1 shadow-md bg-slate-50 border border-slate-100 text-gray-900 text-sm rounded-lg block w-full p-2.5 hover:border-slate-500 focus:outline-none focus:ring-0" type="password" id="password" name="password" required /> <br />
+                            <form onSubmit={handleSubmit}>
+                                <div className="mb-5">
+                                    <label htmlFor="email" className="block text-sm font-medium text-secondary">Indirizzo Email:</label><br />
+                                    <input className="mt-1 shadow-md bg-slate-50 border border-slate-100 text-gray-900 text-sm rounded-lg block w-full p-2.5 hover:border-slate-500 focus:outline-none focus:ring-0" type="email" id="email" name="email" required /> 
+                                </div>
+                                <div className="mb-5">
+                                    <label htmlFor="password" className="block text-sm font-medium text-secondary">Password:</label><br />
+                                    <input className="mt-1 shadow-md bg-slate-50 border border-slate-100 text-gray-900 text-sm rounded-lg block w-full p-2.5 hover:border-slate-500 focus:outline-none focus:ring-0" type="password" id="password" name="password" required /> 
+                                </div>
                                 <div className="flex justify-between items-center">
                                     <a className="text-secondary underline hover:no-underline" href="Pagina di recupero passwod">Hai dimenticato la tua Password? </a>
                                     <button type="submit" className="bg-secondary text-slate-50 p-2 py-2.5 rounded-lg text-sm font-medium hover:bg-primary hover:text-secondary my-4 ml-auto">Accedi</button> <br />
