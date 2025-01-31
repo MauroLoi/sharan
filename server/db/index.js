@@ -22,6 +22,7 @@ const disconnect = async () => {
 
 const models = {
     User: require("./models/User"),
+    Page: require("./models/Page"),
 }
 
 module.exports = {
