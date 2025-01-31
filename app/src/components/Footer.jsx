@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
     <>
-      <footer className="py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-secondary pb-4">
+      <footer className="">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 bg-secondary pb-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <svg className="flex float-left" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" width="65" height="65">
@@ -50,7 +50,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="bg-slate-950 p-0.5 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"></div>
+        <div className="bg-slate-950 p-0.5 w-full mx-auto px-4 sm:px-6 lg:px-8"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
           <div className="flex float-start gap-1">
             <svg className="pb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30"><path fill="#152460" d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM199.4 312.6c-31.2-31.2-31.2-81.9 0-113.1s81.9-31.2 113.1 0c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9c-50-50-131-50-181 0s-50 131 0 181s131 50 181 0c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0c-31.2 31.2-81.9 31.2-113.1 0z" /></svg>
