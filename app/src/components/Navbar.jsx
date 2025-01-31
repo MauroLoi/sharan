@@ -12,7 +12,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="flex items-center w-full bg-secondary  mx-auto px-4 sm:px-6 lg:px-8">
+            <nav className="flex items-center w-full bg-secondary mx-auto px-4 sm:px-6 lg:px-8">
                 <div>
                     <Link to="/" className="flex items-center">
                         <svg className="flex float-left" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 2048 2048" width="100" height="100">
