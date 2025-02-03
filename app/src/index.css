@@ -37,20 +37,3 @@ h6 {
     @apply text-base font-bold;
 }
 
-.titolo {
-    font-size: 2.5rem;
-    text-align: center;
-    padding: 50px;
-    margin-bottom: 50px;
-    opacity: 0; 
-    animation: fadeIn 5s ease-in-out forwards; 
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }

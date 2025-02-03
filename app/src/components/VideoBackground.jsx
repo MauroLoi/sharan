@@ -22,8 +22,6 @@ const VideoBackground = () => {
       >
         <source src={videoClouds} type="video/mp4" />
       </video>
-
-      
     </div>
   );
 };
