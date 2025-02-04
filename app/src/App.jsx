@@ -43,4 +43,11 @@ export default App
 // http://localhost:5173/login -> public
 // http://localhost:5173/register -> public
 
-// http://localhost:5173/app/ -> dashboard
+// http://localhost:5173/app/pages -> Page.jsx -> CREATE + READ ALL + EDIT + DELETE
+// http://localhost:5173/app/pages/:id -> SinglePage.jsx -> READ SINGLE + DELETE + EDIT
+
+// // http://localhost:5173/app/pathways -> Pathway.jsx
+
+// http://localhost:5173/app/analytics -> Analityc.jsx -> READ + GRAPH
+
+// http://localhost:5173/app/settings -> Settings.jsx -> FORM PROFILE SETTINGS -> info + email + password
