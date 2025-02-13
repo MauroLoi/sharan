@@ -8,8 +8,7 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import AppHome from "./pages/app/Home"
-import Progressi from "./components/Progressi"
-import Pages from "./components/Pages"
+import Pages from "./pages/app/Pages"
 
 const ProtectedRoute = ({ children }) => {
     const auth = useSelector((state) => state.auth);
@@ -34,7 +33,6 @@ const App = () => {
                 }>
                     <Route path="" element={<AppHome />} />
                     <Route path="pages" element={<Pages />} />
-                    <Route path="progressi" element={<Progressi />} />
                 </Route>
             </Routes>
         </>
