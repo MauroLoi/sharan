@@ -16,7 +16,7 @@ const Navbar = () => {
     if (!auth.user) return null;
 
     return (
-        <nav className="flex justify-end rounded">
+        <nav className="flex justify-end rounded bg-slate-100">
             <div className="border-solid border-x-0 border-t-0 border-b-2 p-5 gap-4 w-[94%] flex justify-end">
                 <div>
                     <Link to="/app" className=" hover:text-slate-500 font-semibold">

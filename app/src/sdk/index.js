@@ -52,5 +52,21 @@ export const SDK = {
                 data: payload,
             })).data;
         },
+    },
+    pages: {
+        getAll: async (token, options = { is_archived: false }) => {
+            return (await axios({
+                url: getApiUrl(`/pages?archived=${options.is_archived}`),
+                method: 'GET',
+                headers: { "Authorization": `Bearer ${token}` },
+            })).data;
+        },
+        getOneById: async (id, token) => {
+            return (await axios({
+                url: getApiUrl(`/pages/${id}`),
+                method: 'GET',
+                headers: { "Authorization": `Bearer ${token}` },
+            })).data;
+        },
     }
 }

@@ -8,6 +8,7 @@ import App from './App.jsx';
 
 import './index.css';
 import 'react-toastify/ReactToastify.css';
+import "react-datepicker/dist/react-datepicker.css";
 
 createRoot(document.getElementById('root')).render(
     <ReduxProvider store={store}>
