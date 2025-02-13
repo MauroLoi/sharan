@@ -1,4 +1,4 @@
-import imageSrc from "../assets/lago-di-montagna.jpg"
+import imageSrc from "../assets/sharan.png"
 import icon from "../assets/logo.svg"
 import { Link, useNavigate } from "react-router-dom";
 import { getDataFromEntries } from "../utilities/form";
