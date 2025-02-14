@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { useSelector } from "react-redux"
 
+
 import PublicLayout from "./layouts/PublicLayout"
 import DashboardLayout from "./layouts/DashboardLayout"
 
@@ -9,6 +10,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import AppHome from "./pages/app/Home"
 import AppSettings from "./pages/app/Settings"
+import AppDiary from "./pages/app/Diary"
 
 const ProtectedRoute = ({ children }) => {
     const auth = useSelector((state) => state.auth);
@@ -33,6 +35,7 @@ const App = () => {
                 }>
                     <Route path="" element={<AppHome />} />
                     <Route path="settings" element={<AppSettings />} />
+                    <Route path="diary" element={<AppDiary />} />
                 </Route>
             </Routes>
         </>
