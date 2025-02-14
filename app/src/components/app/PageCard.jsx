@@ -13,14 +13,10 @@ const PageCard = ({ _id, title, content, createdAt, sentiment_score, className =
             <div className={`bg-white shadow-lg rounded-lg p-4 sm:p-6 flex flex-col justify-between ${className}`}>
                 <div>
                     <h4 className='mb-2'>{title}</h4>
-                    <p>
-                        {
-                            content.length > 100 ? `${content.substring(0, 150)}...` : content 
-                        }
-                    </p>
+                    <p dangerouslySetInnerHTML={{ __html: content.length > 100 ? `${content.substring(0, 150)}...` : content  }}></p>
                 </div>
                 <div>
-                    <div className='py-4 flex gap-2'>
+                    <div className='py-4 flex items-center gap-2'>
                         <p>Scritta il:</p>
                         <p>{new Date(createdAt).toLocaleDateString()}</p>
                     </div>

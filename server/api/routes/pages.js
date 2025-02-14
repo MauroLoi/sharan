@@ -40,9 +40,14 @@ app.post("/", authUser, async (req, res) => {
 app.get("/", authUser, async (req, res) => {
     const user = req.user._id;
     const is_archived = req.query.archived === undefined ? false : req.query.archived;
+    const start_date = !req.query.start_date || req.query.start_date == "null" ? false : req.query.start_date;
+
+    const findObj = { user, is_archived };
+    
+    if (start_date) findObj.createdAt = { $gte: new Date(start_date) };
 
     try {
-        const pages = await Page.find({ user, is_archived }, null, { lean: true });
+        const pages = await Page.find(findObj, null, { lean: true });
 
         return res.status(200).json(pages);
     } catch(err) {

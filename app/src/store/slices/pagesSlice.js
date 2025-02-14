@@ -12,10 +12,13 @@ const pagesSLace = createSlice({
         },
         setCurrentPage: (state, { payload }) => { // { ... }
             state.current = payload;
-        }
+        },
+        addNewPage: (state, { payload }) => {
+            state.all.push(payload);
+        },
     }
 });
 
-export const { setAllPages, setCurrentPage } = pagesSLace.actions;
+export const { setAllPages, setCurrentPage, addNewPage } = pagesSLace.actions;
 
 export default pagesSLace.reducer;

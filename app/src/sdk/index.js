@@ -54,9 +54,10 @@ export const SDK = {
         },
     },
     pages: {
-        getAll: async (token, options = { is_archived: false }) => {
+        getAll: async (token, options = { is_archived: false, startDate: null }) => {
+            options = { is_archived: false, start_date: null, ...options };
             return (await axios({
-                url: getApiUrl(`/pages?archived=${options.is_archived}`),
+                url: getApiUrl(`/pages?archived=${options.is_archived}&start_date=${options.start_date}`),
                 method: 'GET',
                 headers: { "Authorization": `Bearer ${token}` },
             })).data;
@@ -65,6 +66,14 @@ export const SDK = {
             return (await axios({
                 url: getApiUrl(`/pages/${id}`),
                 method: 'GET',
+                headers: { "Authorization": `Bearer ${token}` },
+            })).data;
+        },
+        create: async (payload, token) => { // { title, content }
+            return (await axios({
+                url: getApiUrl(`/pages`),
+                method: 'POST',
+                data: payload,
                 headers: { "Authorization": `Bearer ${token}` },
             })).data;
         },
