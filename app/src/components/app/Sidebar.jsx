@@ -13,7 +13,7 @@ const Sidebar = () => {
 
     return (
         <>
-            <div className="flex justify-start">
+            <div className="flex justify-start h-screen">
                 <button
                     onClick={toggleSidebar}
                     className="md:hidden fixed top-4 left-4 z-50 bg-gray-200 p-2 rounded-md shadow-lg"
@@ -21,7 +21,7 @@ const Sidebar = () => {
                     ☰
                 </button>
                 <div className={`bg-white shadow-2xl h-screen w-52 fixed md:relative transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
-                    <Link to="/app">
+                    <Link to="/">
                         <img src={logo} alt="sharan-logo" className="w-[120px]" />
                     </Link>
                     <div className="px-7 flex flex-col gap-2">
