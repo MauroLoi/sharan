@@ -20,10 +20,8 @@ const Login = () => {
         try {
             const data = await SDK.auth.login(payload);
 
-            console.log(data);
-
             dispatch(login(data));
-            navigate("/app");
+            navigate("/app/pages");
         } catch(err) {
             console.log(err);
             toast.error("le credenziali inserite non sono valide")

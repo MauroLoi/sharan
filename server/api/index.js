@@ -21,4 +21,9 @@ app.use("/me", require("./routes/me"));
  */
 app.use("/analytics", require("./routes/analytics"));
 
+/**
+ * @path /api/paths
+ */
+app.use("/paths", require("./routes/paths"));
+
 module.exports = app;

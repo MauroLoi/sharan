@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PathCard = ({ title, description, image, path, period, status }) => {
+const PathCard = ({ title, description, image, to, period, status }) => {
     const statusConfig = {
-        "scopri": { label: "Scopri", color: "text-primary" },
-        "in corso": { label: "In corso", color: "text-orange-300" },
-        "fatto": { label: "Fatto", color: "text-green-300" },
+        "Scopri": { label: "Scopri", color: "text-primary" },
+        "In corso": { label: "In corso", color: "text-orange-300" },
+        "Fatto": { label: "Fatto", color: "text-green-300" },
     };
 
     return (
-        <Link to={path} className="cursor-pointer w-full max-w-[350px] sm:w-[90%] md:w-[80%] lg:w-[40%] xl:w-[30%] min-h-[550px] flex flex-col h-full rounded-md shadow-lg mt-10 hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 bg-slate-50">
+        <Link to={to} className="cursor-pointer w-full max-w-[350px] sm:w-[90%] md:w-[80%] lg:w-[40%] xl:w-[30%] min-h-[550px] flex flex-col h-full rounded-md shadow-lg mt-10 hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition-all duration-300 bg-slate-50">
             <img src={image} alt={title} className="rounded-t-md aspect-[4/3] w-full object-cover h-[200px]" />
             <div className="p-4 flex flex-col flex-grow justify-between">
                 <div>

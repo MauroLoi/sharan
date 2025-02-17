@@ -7,13 +7,12 @@ import DashboardLayout from "./layouts/DashboardLayout"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
-import AppHome from "./pages/app/Home"
 import Pages from "./pages/app/Pages"
 import AppSettings from "./pages/app/Settings"
 import AppDiary from "./pages/app/Diary"
 import AppPaths from "./pages/app/Paths"
 import ProgressAnalytics from "./components/ProgressAnalytics"
-import AppExamplePath from "./pages/app/ExamplePath"
+import CurrentPath from "./pages/app/CurrentPath"
 
 const ProtectedRoute = ({ children }) => {
     const auth = useSelector((state) => state.auth);
@@ -36,13 +35,12 @@ const App = () => {
                         <DashboardLayout />
                     </ProtectedRoute>
                 }>
-                    <Route path="" element={<AppHome />} />
                     <Route path="pages" element={<Pages />} />
                     <Route path="pages/create" element={<AppDiary />} />
                     <Route path="analytics" element={<ProgressAnalytics />}/>
                     <Route path="settings" element={<AppSettings />} />
                     <Route path="paths" element={<AppPaths />} />
-                    <Route path="paths/example" element={<AppExamplePath />} />
+                    <Route path="paths/:path_id" element={<CurrentPath />} />
                 </Route>
             </Routes>
         </>

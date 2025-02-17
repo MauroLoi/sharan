@@ -23,6 +23,9 @@ const disconnect = async () => {
 const models = {
     User: require("./models/User"),
     Page: require("./models/Page"),
+    Path: require("./models/Path"),
+    Mission: require("./models/Mission"),
+    UserPath: require("./models/UserPath"),
 }
 
 module.exports = {

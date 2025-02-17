@@ -77,5 +77,21 @@ export const SDK = {
                 headers: { "Authorization": `Bearer ${token}` },
             })).data;
         },
+    },
+    paths: {
+        getAll: async (token) => {
+            return (await axios({
+                url: getApiUrl(`/paths`),
+                method: 'GET',
+                headers: { "Authorization": `Bearer ${token}` },
+            })).data;
+        },
+        getOneById: async (token, id) => {
+            return (await axios({
+                url: getApiUrl(`/paths/${id}`),
+                method: 'GET',
+                headers: { "Authorization": `Bearer ${token}` },
+            })).data;
+        },
     }
 }

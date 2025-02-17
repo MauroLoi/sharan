@@ -63,7 +63,7 @@ const GrowthPath = ({
                             >
                                 {mission.completed && <span className="text-white">✓</span>}
                             </button>
-                            {mission.text}
+                            <span className={`cursor-pointer ${mission.completed ? "text-green-600" : "text-red-500"}`} onClick={() => toggleMission(index)}>{mission.text}</span>
                         </li>
                     ))}
                 </ul>

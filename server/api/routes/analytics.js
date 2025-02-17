@@ -5,50 +5,6 @@ const Joi = require("joi");
 const { authUser } = require("../../middlewares/auth");
 const { Page } = require("../../db");
 
-// Fake pages data for testing betrween 2 dates in past 7 days
-const pages = [
-    {
-        user: "5f8c8e3b5c3d9b1e4c0d9b9a",
-        sentiment_score: 1,
-        createdAt: new Date("2024-02-04T00:00:00Z")
-    },
-    {
-        user: "5f8c8e3b5c3d9b1e4c0d9b9a",
-        sentiment_score: 2,
-        createdAt: new Date("2024-02-04T00:00:00Z")
-    },
-    {
-        user: "5f8c8e3b5c3d9b1e4c0d9b9a",
-        sentiment_score: -1,
-        createdAt: new Date("2024-02-03T00:00:00Z")
-    },
-    {
-        user: "5f8c8e3b5c3d9b1e4c0d9b9a",
-        sentiment_score: 2,
-        createdAt: new Date("2024-02-03T00:00:00Z")
-    },
-    {
-        user: "5f8c8e3b5c3d9b1e4c0d9b9a",
-        sentiment_score: 0,
-        createdAt: new Date("2024-02-02T00:00:00Z")
-    },
-    {
-        user: "5f8c8e3b5c3d9b1e4c0d9b9a",
-        sentiment_score: 3,
-        createdAt: new Date("2024-02-02T00:00:00Z")
-    },
-    {
-        user: "5f8c8e3b5c3d9b1e4c0d9b9a",
-        sentiment_score: -2,
-        createdAt: new Date("2024-02-01T00:00:00Z")
-    },
-    {
-        user: "5f8c8e3b5c3d9b1e4c0d9b9a",
-        sentiment_score: 0,
-        createdAt: new Date("2024-02-01T00:00:00Z")
-    },
-];
-
 /**
  * @path /api/analytics
  * @method GET

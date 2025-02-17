@@ -1,40 +1,54 @@
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import { SDK } from '../../sdk'
+import { setAllPaths } from '../../store/slices/pathsSlice'
+
 import PathCard from '../../components/PathCard'
-import pcImg from '../../assets/pc.jpg'
-import manImg from '../../assets/meditazione.jpg'
-import yogaImg from '../../assets/yoga.jpeg'
 import percorsoImg from '../../assets/percorsoImg.png'
 
-import React from 'react'
+const getStatus = (missions) => {
+    const completed = missions.filter(mission => mission.completed).length;
+    const total = missions.length;
+    return completed === total ? 'Fatto' : completed === 0 ? 'Scopri' : 'In corso';
+}
 
 const Paths = () => {
+    const dispatch = useDispatch();
+    const { token } = useSelector(state => state.auth);
+    const { all: paths } = useSelector(state => state.paths);
+
+    const fetchPaths = async () => {
+        try {
+            const paths = await SDK.paths.getAll(token);
+            dispatch(setAllPaths(paths));
+        } catch (error) {
+            console.error(error);
+            toast.error('Errore nel caricamento dei percorsi');
+        }
+    }
+
+    useEffect(() => {
+        if (!paths) fetchPaths();
+    }, []);
+
     return (
         <>
             <div className="flex gap-3 justify-end pt-8">
                 <img src={percorsoImg} alt="logo" className='p-5 pl-0' />
-                <PathCard 
-                    image={pcImg}
-                    title="Le prime Pagine"
-                    description="Un percorso per prendere confidenza con il diario, con spunti quotidiani per raccontare la tua giornata, riscoprire ricordi e trasformare la scrittura in un'abitudine di benessere."
-                    period="15 Giorni"
-                    path=""
-                    status="fatto"
-                />
-                <PathCard 
-                    image={manImg}
-                    title="Equilibrio interiore"
-                    description="Un viaggio che ti aiuterà a riconnetterti con te stesso attraverso meditazione e digiuno digitale, offrendoti task giornalieri per ritrovare la calma e liberarti dalle distrazioni"
-                    period="7 Giorni"
-                    path=""
-                    status="scopri"
-                />
-                <PathCard
-                    image={yogaImg} 
-                    title="Meditazione e Calma"
-                    description="Questo percorso ti guiderà in sessioni di meditazione per ridurre lo stress, migliorare la consapevolezza e ritrovare equilibrio interiore."
-                    period="12 Giorni"
-                    path=""
-                    status="in corso"
-                />
+                {
+                    paths && paths.map(({ _id, path, missions }) => (
+                        <PathCard 
+                            key={path._id}
+                            image={path.cover_image}
+                            title={path.title}
+                            description={path.short_content}
+                            period={path.period}
+                            to={`/app/paths/${_id}`}
+                            status={getStatus(missions)}
+                        />
+                    ))
+                }
             </div>
         </>
 
