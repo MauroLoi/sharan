@@ -12,6 +12,7 @@ import AppHome from "./pages/app/Home"
 import Pages from "./pages/app/Pages"
 import AppSettings from "./pages/app/Settings"
 import AppDiary from "./pages/app/Diary"
+import ProgressAnalytics from "./components/ProgressAnalytics"
 
 const ProtectedRoute = ({ children }) => {
     const auth = useSelector((state) => state.auth);
@@ -37,6 +38,7 @@ const App = () => {
                     <Route path="" element={<AppHome />} />
                     <Route path="pages" element={<Pages />} />
                     <Route path="pages/create" element={<AppDiary />} />
+                    <Route path="analytics" element={<ProgressAnalytics />}/>
                     <Route path="settings" element={<AppSettings />} />
                 </Route>
             </Routes>
