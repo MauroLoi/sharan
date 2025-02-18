@@ -52,7 +52,7 @@ const Footer = () => {
           <svg className="pb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30"><path fill="#152460" d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM199.4 312.6c-31.2-31.2-31.2-81.9 0-113.1s81.9-31.2 113.1 0c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9c-50-50-131-50-181 0s-50 131 0 181s131 50 181 0c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0c-31.2 31.2-81.9 31.2-113.1 0z" /></svg>
           <p>2025 Copyright. Tutti i diritti riservati</p>
         </div>
-        <div className="flex flex-row gap-6">
+        <div className="flex flex-row gap-6 max-h-2">
           <p className="hover:text-blue-700">Termini di servizio</p>
           <p className="hover:text-blue-700">Informativa privacy</p>
         </div>
