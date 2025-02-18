@@ -9,7 +9,7 @@ const DashboardLayout = () => {
       <Sidebar />
       <div className="flex flex-col flex-1">
         <Navbar />
-        <div className="bg-slate-100 h-full flex justify-center">
+        <div className="bg-slate-100 flex justify-center overflow-y-auto overflow-x-hidden" style={{ height: "calc(100vh - 66px)" }}>
           <div className="max-w-[1320px] w-full pt-6">
             <Outlet />
           </div>

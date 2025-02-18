@@ -5,24 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SDK } from '../../sdk';
 import { setCurrentPath } from '../../store/slices/pathsSlice';
 import { toast } from 'react-toastify';
+import BackButton from '../../components/shared/BackButton';
 
 const CurrentPath = () => {
     const dispatch = useDispatch();
     const { path_id } = useParams();
     const { token } = useSelector(state => state.auth);
     const _path = useSelector(state => state.paths.current);
-
-    const [audio] = useState(new Audio("https://www.bensound.com/bensound-music/bensound-relaxing.mp3"));
-    const [isMusicPlaying, setIsMusicPlaying] = useState(false);
-
-    const handlePlayMusic = () => {
-        if (isMusicPlaying) {
-            audio.pause();
-        } else {
-            audio.play().catch(error => console.error("Errore nella riproduzione audio:", error));
-        }
-        setIsMusicPlaying(!isMusicPlaying);
-    };
 
     const fetchPath = async () => {
         try {
@@ -35,18 +24,20 @@ const CurrentPath = () => {
     }
 
     useEffect(() => {
-        if (!_path) fetchPath();
+        if (!_path || _path._id != path_id) fetchPath();
     }, [_path]);
+
+    useEffect(() => {
+        return () => {
+            dispatch(setCurrentPath(null));
+        }
+    }, []);
 
     return (
         <div className="min-h-screen p-8 bg-slate-100">
-            {/* Titolo della pagina */}
-            <h1 className="text-3xl font-bold text-slate-800 mb-8 text-center">
-                Percorso di Meditazione e Calma
-            </h1>
+            <BackButton to="/app/paths">Tutti i percorsi</BackButton>
 
-            {/* Componente GrowthPath */}
-            <div className="max-w-2xl mx-auto mb-6">
+            <div className="max-w-4xl mx-auto mb-6">
                 {
                     _path?.path && _path?.missions && (
                         <GrowthPath
@@ -60,16 +51,6 @@ const CurrentPath = () => {
                         />
                     )
                 }
-            </div>
-
-            {/* Pulsante per avviare/stoppare la musica */}
-            <div className="text-center">
-                <button
-                    className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                    onClick={handlePlayMusic}
-                >
-                    {isMusicPlaying ? "Ferma Musica 🎶" : "Avvia Musica Rilassante 🎵"}
-                </button>
             </div>
         </div>
     );

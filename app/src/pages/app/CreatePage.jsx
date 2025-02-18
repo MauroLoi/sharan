@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { addNewPage } from '../../store/slices/pagesSlice';
 
-const Diary = () => {
+const CreatePage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { token } = useSelector(state => state.auth);
@@ -58,4 +58,4 @@ const Diary = () => {
     );
 };
 
-export default Diary;
+export default CreatePage;

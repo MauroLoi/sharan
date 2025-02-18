@@ -9,10 +9,11 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Pages from "./pages/app/Pages"
 import AppSettings from "./pages/app/Settings"
-import AppDiary from "./pages/app/Diary"
+import CreatePage from "./pages/app/CreatePage"
 import AppPaths from "./pages/app/Paths"
 import ProgressAnalytics from "./components/ProgressAnalytics"
 import CurrentPath from "./pages/app/CurrentPath"
+import CurrentPage from "./pages/app/CurrentPage"
 
 const ProtectedRoute = ({ children }) => {
     const auth = useSelector((state) => state.auth);
@@ -36,7 +37,8 @@ const App = () => {
                     </ProtectedRoute>
                 }>
                     <Route path="pages" element={<Pages />} />
-                    <Route path="pages/create" element={<AppDiary />} />
+                    <Route path="pages/create" element={<CreatePage />} />
+                    <Route path="pages/:page_id" element={<CurrentPage />} />
                     <Route path="analytics" element={<ProgressAnalytics />}/>
                     <Route path="settings" element={<AppSettings />} />
                     <Route path="paths" element={<AppPaths />} />

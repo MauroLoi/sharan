@@ -7,20 +7,9 @@ const GrowthPath = ({
     image = "",
     missions = [],
     rewardMessage = "Complimenti! Hai completato il percorso!",
-    backgroundMusic = ""
 }) => {
     const [userMissions, setUserMissions] = useState(missions); // Stato per le missioni
     const [showReward, setShowReward] = useState(false); // Stato per il messaggio di ricompensa
-    const [audio] = useState(new Audio(backgroundMusic)); // Oggetto audio per la musica di sottofondo
-
-    // Avvia la musica di sottofondo se è fornita
-    useEffect(() => {
-        if (backgroundMusic) {
-            audio.loop = true;
-            audio.play();
-        }
-        return () => audio.pause(); // Ferma la musica quando il componente viene smontato
-    }, [backgroundMusic, audio]);
 
     // Calcola la percentuale di completamento delle missioni
     const completedCount = userMissions.filter(m => m.completed).length;
@@ -39,22 +28,25 @@ const GrowthPath = ({
     };
 
     return (
-        <div className="p-6 space-y-4 w-full bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-slate-200 relative">
-            {image && <img src={image} alt={title} className="w-full h-40 object-cover rounded-lg" />}
-            <h2 className="text-2xl font-semibold text-slate-800">{title}</h2>
-            <p className="text-slate-600">{description}</p>
+        <div className="space-y-4 w-full flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-slate-200 relative">
+            {image && <img src={image} alt={title} className="w-full h-40 object-cover rounded-t-lg" />}
+            
+            <div className="p-6 pb-0">
+                <h2 className="text-2xl font-semibold text-slate-800">{title}</h2>
+                <p className="text-slate-600">{description}</p>
+            </div>
 
             {pathDescription && (
-                <div className="text-slate-700">
+                <div className="text-slate-700 p-6 pb-0">
                     <h3 className="font-medium">Descrizione del Percorso</h3>
                     <p>{pathDescription}</p>
                 </div>
             )}
 
             {/* Lista delle missioni */}
-            <div>
-                <h3 className="font-medium text-slate-700">Micro Missioni</h3>
-                <ul className="list-disc list-inside text-slate-700">
+            <div className="p-6 pb-0">
+                <h3 className="font-medium text-slate-700 mb-4">Micro Missioni</h3>
+                <ul className="list-disc list-inside text-slate-700 flex flex-col gap-1">
                     {userMissions.map((mission, index) => (
                         <li key={index} className={`flex items-center gap-2 ${mission.completed ? "text-green-600" : "text-red-500"}`}>
                             <button
@@ -70,7 +62,7 @@ const GrowthPath = ({
             </div>
 
             {/* Barra di progresso */}
-            <div>
+            <div className="p-6 flex flex-col gap-4">
                 <h3 className="font-medium text-slate-700">Completamento</h3>
                 <div className="w-full bg-slate-200 rounded h-4 overflow-hidden">
                     <div className="h-full transition-all bg-blue-600" style={{ width: `${completion}%` }}></div>
@@ -79,7 +71,7 @@ const GrowthPath = ({
 
             {/* Messaggio di ricompensa */}
             {showReward && (
-                <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 rounded-lg p-6 text-center shadow-lg">
+                <div className="absolute top-0 m-0 inset-0 flex items-center justify-center bg-white bg-opacity-95 rounded-lg p-6 text-center shadow-lg" style={{ margin: 0 }}>
                     <h3 className="text-2xl font-bold text-green-600">{rewardMessage}</h3>
                 </div>
             )}
