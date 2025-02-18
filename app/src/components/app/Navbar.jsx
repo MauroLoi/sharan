@@ -19,7 +19,7 @@ const Navbar = () => {
         <nav className="flex justify-end rounded bg-slate-100">
             <div className="border-solid border-x-0 border-t-0 border-b-2 p-5 gap-4 w-[94%] flex justify-end">
                 <div>
-                    <Link to="/app" className=" hover:text-slate-500 font-semibold">
+                    <Link to="/app/pages" className=" hover:text-slate-500 font-semibold">
                         {auth.user.first_name} {auth.user.last_name}
                     </Link>
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Montagna from '../assets/Montagna-cinese.jpg';
+import worry from '../assets/worry2.jpg';
 import logo from "../assets/logo.svg";
 import { Link, useNavigate } from 'react-router-dom';
 import { getDataFromEntries } from '../utilities/form';
@@ -60,7 +60,7 @@ const Login = () => {
                     </div>
                 </div>
                 <div className='hidden md:block flex-1 h-full'>
-                    <img src={Montagna} alt="Montagna Cinese" className="w-full h-full object-cover" />
+                    <img src={worry} alt="Montagna Cinese" className="w-full h-full object-cover" />
                 </div>
             </div>
         </>

@@ -31,7 +31,7 @@ const Navbar = () => {
                         <Link to="/login" className="text-slate-50">Accedi</Link>
                     ) : (
                         <>
-                            <Link to="/app" className="text-slate-50">{auth.user.first_name} {auth.user.last_name}</Link>
+                            <Link to="/app/pages" className="text-slate-50">{auth.user.first_name} {auth.user.last_name}</Link>
                             <button onClick={handleLogout} className="text-slate-50">Logout</button>
                         </>
                     )}
@@ -57,7 +57,7 @@ const Navbar = () => {
                 className={`sm:hidden fixed inset-0 bg-secondary transition-opacity duration-300 ease-in-out z-40 ${isMenuOpen ? "opacity-95" : "opacity-0 pointer-events-none"}`}
                 onClick={() => setIsMenuOpen(false)}
             >
-                <div className={`fixed inset-0 bg-secondary flex flex-col items-center justify-center z-50 transform transition-all duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
+                <div className={`fixed w-screen h-screen inset-0 bg-secondary flex flex-col items-center justify-center z-50 transform transition-all duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"}`}>
                     <button onClick={() => setIsMenuOpen(false)} className="absolute top-4 right-4 text-slate-50">
                         ✖
                     </button>
