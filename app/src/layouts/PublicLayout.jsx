@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar"
 
 const PublicLayout = () => {
   const location = useLocation();
-  const excludedPathname = ["/login", "/register"]
+  const excludedPathname = ["/login", "/register", "/forgotPassword"]
 
   if(excludedPathname.includes(location.pathname)) {
     return <Outlet />

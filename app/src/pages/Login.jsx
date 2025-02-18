@@ -48,7 +48,8 @@ const Login = () => {
                                     <input className="mt-1 shadow-md bg-slate-50 border border-slate-100 text-gray-900 text-sm rounded-lg block w-full p-2.5 hover:border-slate-500 focus:outline-none focus:ring-0" type="password" id="password" name="password" required /> 
                                 </div>
                                 <div className="flex justify-between items-center">
-                                    <a className="text-secondary underline hover:no-underline" href="Pagina di recupero passwod">Hai dimenticato la tua Password? </a>
+                                    <a className="text-secondary underline hover:no-underline" href="/forgotPassword">Hai dimenticato la tua Password? </a>
+                                    
                                     <button type="submit" className="bg-secondary text-slate-50 p-2 py-2.5 rounded-lg text-sm font-medium hover:bg-primary hover:text-secondary my-4 ml-auto">Accedi</button> <br />
                                 </div>
                             </form>
