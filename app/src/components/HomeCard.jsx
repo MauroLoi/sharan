@@ -3,7 +3,7 @@ import React from 'react'
 const HomeCard = ({ title, description, backgroundImage }) => {
   return (
     <div 
-      className="flex-1 text-center h-1/2"
+      className="flex-1 text-center h-1/2" 
       style={{ 
         backgroundImage: `url(${backgroundImage})`, 
         backgroundSize: "cover",

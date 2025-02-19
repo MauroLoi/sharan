@@ -36,7 +36,7 @@ const Home = () => {
                 />
                 <HomeCard
                     title="Percorsi"
-                    description="Segui un percorso guidato verso il benessere con il supporto di esperti."
+                    description="Scegli il percorso che fa per te e immergiti in un viaggio guidato verso il benessere con delle task giornaliere."
                 />
                 <HomeCard
                     title="Progressi"
