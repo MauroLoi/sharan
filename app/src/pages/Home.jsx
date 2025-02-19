@@ -1,49 +1,51 @@
 import HomeCard from "../components/HomeCard"
 import VideoBackground from "../components/VideoBackground"
 import { Link } from 'react-router-dom'
+import logo from "../assets/aa.png"
 
 const Home = () => {
     return (
-        <>
-            <div className="flex flex-col xl:flex-row">
-                <div className="w-full xl:w-1/2 h-screen hidden xl:block">
-                    <HomeCard
-                        title="Machine Learning"
-                        description="Questo sito utilizza il Machine Learning per analizzare le emozioni trasmesse dai tuoi scritti e offrirti un'esperienza personalizzata."
-                        backgroundImage="https://images.pexels.com/photos/1694621/pexels-photo-1694621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    />
-                    <HomeCard
-                        title="Diario Emotivo"
-                        description="Scrivi liberamente nel nostro diario digitale: il sito analizzerà il tuo testo per comprendere il tuo stato emotivo e offrirti suggerimenti personalizzati."
-                        backgroundImage="https://images.pexels.com/photos/158465/waterlily-pink-water-lily-water-plant-158465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    />
-                </div>
-                <div className="relative w-full h-screen">
-                    <VideoBackground />
-                    <div className="relative z-10 text-center text-white p-6 sm:p-10 bg-black bg-opacity-50 transition-all hover:bg-opacity-40 h-full flex flex-col gap-6 items-center justify-center">
-                        <h1 className="titolo text-center text-4xl sm:text-5xl text-white leading-tight">Dai voce ai tuoi pensieri, trova la tua pace.</h1>
-                        <p className="text-center text-white text-lg sm:text-2xl p-2 px-4 leading-relaxed sm:leading-9">Il nostro sito è pensato per chiunque abbia bisogno di una valvola di sfogo e di un luogo sicuro per esprimersi. Con un diario personale, percorsi guidati di rilassamento e crescita personale, ti aiuta a prenderti cura della tua mente, un passo alla volta. Scrivi, rifletti e ritrova il tuo equilibrio, tutto in un unico spazio creato per il tuo benessere interiore.</p>
-                        <div className="p-2 pt-6 flex flex-col gap-6">
-                            <p className="mb-4 text-white text-xl sm:text-2xl">Inizia il tuo viaggio!</p>
-                            <Link to="/register" className="hover:transition-all hover:bg-opacity-20 hover:bg-black font-semibold text-white text-xl sm:text-2xl bg-transparent py-3 px-6 rounded cursor-pointer border-solid border-2 border-slate-50">Unisciti</Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-full xl:w-1/2 h-screen hidden xl:block">
-                    <HomeCard
-                        title="Percorsi"
-                        description="Segui un percorso guidato verso il benessere, con il supporto di esperti per una nuova consapevolezza."
-                        backgroundImage="https://images.pexels.com/photos/1640820/pexels-photo-1640820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    />
-                    <HomeCard
-                        title="Progressi"
-                        description="Tieni traccia dei tuoi progressi con un grafico e scopri il tuo cambiamento."
-                        backgroundImage="https://images.pexels.com/photos/2469087/pexels-photo-2469087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    />
-                </div>
+        <div className="relative w-full h-screen">
+            <VideoBackground />
+            <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+            <div className="flex justify-center pt-20">
+                <img src={logo} alt="logo" className="absolute w-60 h-60 "/>
             </div>
-        </>
+            
+            <div className="absolute inset-0 flex flex-col items-center justify-center mb-64 sm:pt-44 text-center px-6 sm:px-10">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                    Dai voce ai tuoi pensieri, trova la tua pace.
+                </h1>
+                <p className="mt-4 text-base sm:text-lg lg:text-2xl max-w-3xl text-white">
+                    Il nostro sito è pensato per chiunque abbia bisogno di una valvola di sfogo e di un luogo sicuro per esprimersi. Con un diario personale, percorsi guidati di rilassamento e crescita personale, ti aiuta a prenderti cura della tua mente, un passo alla volta.
+                </p>
+
+                <Link to="/register" className="mt-6 text-slate-50 font-semibold text-lg sm:text-xl py-3 px-6 rounded-lg transition-all transform hover:translate-y-[-4px] hover:shadow-lg shadow-2xl bg-opacity-15 bg-black">
+                    Unisciti
+                </Link>
+            </div>
+
+            <div className="absolute bottom-0 w-full flex flex-col sm:flex-row justify-center gap-4 sm:gap-2 p-4 sm:p-2 text-white">
+                <HomeCard
+                    title="Machine Learning"
+                    description="Questo sito analizza le emozioni dei tuoi scritti e ti offre un'esperienza personalizzata."
+                />
+                <HomeCard
+                    title="Diario Emotivo"
+                    description="Scrivi liberamente: il sito analizzerà il tuo testo per offrirti suggerimenti personalizzati."
+                />
+                <HomeCard
+                    title="Percorsi"
+                    description="Segui un percorso guidato verso il benessere con il supporto di esperti."
+                />
+                <HomeCard
+                    title="Progressi"
+                    description="Tieni traccia dei tuoi progressi con un grafico per scoprire il tuo cambiamento."
+                />
+            </div>
+        </div>
     )
 }
 
 export default Home;
+

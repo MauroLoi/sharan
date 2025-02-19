@@ -14,25 +14,25 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="hidden sm:flex items-center w-full bg-secondary mx-auto px-4 p-4 font-semibold sm:px-6 lg:px-8">
+            <nav className="hidden sm:flex items-center w-full bg-transparent mx-auto px-4 p-4 font-semibold sm:px-6 lg:px-8 absolute top-0 left-0 z-20">
                 <div>
                     <Link to="/" className="flex items-center">
-                        <h2 className="flex text-slate-50">Sharan</h2>
+                        <h2 className="flex text-slate-700">Sharan</h2>
                     </Link>
                 </div>
-                <div className="flex-grow flex justify-center space-x-6">
-                    <Link to="/" className="text-slate-50">Home</Link>
-                    <Link to="/" className="text-slate-50">Chi siamo</Link>
-                    <Link to="/" className="text-slate-50">Servizi</Link>
-                    <Link to="/" className="text-slate-50">Contattaci</Link>
+                <div className="flex-grow flex justify-center space-x-6 font-semibold pl-32 text-lg">
+                    <Link to="/" className="text-slate-700">Home</Link>
+                    <Link to="/" className="text-slate-700">Chi siamo</Link>
+                    <Link to="/" className="text-slate-700">Servizi</Link>
+                    <Link to="/" className="text-slate-700">Contattaci</Link>
                 </div>
-                <div className="flex items-center gap-4 p-4">
+                <div className="flex items-center gap-4 p-4 text-xl">
                     {auth.token == null ? (
-                        <Link to="/login" className="text-slate-50">Accedi</Link>
+                        <Link to="/login" className="text-slate-700">Accedi</Link>
                     ) : (
                         <>
-                            <Link to="/app/pages" className="text-slate-50">{auth.user.first_name} {auth.user.last_name}</Link>
-                            <button onClick={handleLogout} className="text-slate-50">Logout</button>
+                            <Link to="/app/pages" className="text-slate-700 font-bold">{auth.user.first_name} {auth.user.last_name}</Link>
+                            <button onClick={handleLogout} className="text-slate-700 font-bold">Logout</button>
                         </>
                     )}
                 </div>

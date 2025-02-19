@@ -11,7 +11,7 @@ const HomeCard = ({ title, description, backgroundImage }) => {
         backgroundBlendMode: "overlay",
       }}
     >
-      <div className="bg-black bg-opacity-50 h-full w-full p-12 flex flex-col items-center justify-center cursor-pointer transition-all hover:bg-opacity-40">
+      <div className="bg-black bg-opacity-20 h-full w-full p-12 flex flex-col items-center justify-center transition-all hover:bg-opacity-40 rounded-md">
       <h3 className="text-white mb-8 mt-8" >{ title }</h3>
       <p className="text-white text-2xl">{ description }</p>
       </div>
