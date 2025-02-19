@@ -39,7 +39,7 @@ const App = () => {
                     <Route path="pages" element={<Pages />} />
                     <Route path="pages/create" element={<CreatePage />} />
                     <Route path="pages/:page_id" element={<CurrentPage />} />
-                    <Route path="analytics" element={<ProgressAnalytics />}/>
+                    <Route path="analytics" element={<ProgressAnalytics />} />
                     <Route path="settings" element={<AppSettings />} />
                     <Route path="paths" element={<AppPaths />} />
                     <Route path="paths/:path_id" element={<CurrentPath />} />
