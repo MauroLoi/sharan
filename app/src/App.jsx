@@ -8,6 +8,7 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Pages from "./pages/app/Pages"
+import ForgotPassword from "./pages/ForgotPassword"
 import AppSettings from "./pages/app/Settings"
 import CreatePage from "./pages/app/CreatePage"
 import AppPaths from "./pages/app/Paths"
@@ -30,6 +31,7 @@ const App = () => {
                     <Route path="" element={<Home />} />
                     <Route path="login" element={<Login />} />
                     <Route path="register" element={<Register />} />
+                    <Route path="forgotPassword" element={<ForgotPassword />} />
                 </Route>
                 <Route path="/app" element={
                     <ProtectedRoute>
@@ -54,6 +56,7 @@ export default App
 // http://localhost:5173/ -> public
 // http://localhost:5173/login -> public
 // http://localhost:5173/register -> public
+// http://localhost:5173/forgotPassword -> public
 
 // http://localhost:5173/app/ -> dashboard
 
