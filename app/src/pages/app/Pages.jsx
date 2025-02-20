@@ -13,7 +13,7 @@ const Pages = () => {
     const dispatch = useDispatch();
     const { token } = useSelector(state => state.auth);
     const pages = useSelector(state => state.pages.all);
-    const [startDate, setStartDate] = useState(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()));
+    const [startDate, setStartDate] = useState(new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()-3));
 
     const fetchPages = async (startDate) => {
         try {

@@ -15,18 +15,20 @@ const Navbar = () => {
     return (
         <>
             <nav className="hidden sm:flex items-center w-full bg-transparent mx-auto px-4 p-4 font-semibold sm:px-6 lg:px-8 absolute top-0 left-0 z-20">
-                <div>
+                <div className="flex-1">
                     <Link to="/" className="flex items-center">
                         <h2 className="flex text-slate-700">Sharan</h2>
                     </Link>
                 </div>
-                <div className="flex-grow flex justify-center space-x-6 font-semibold pl-32 text-lg">
+
+                <div className="flex flex-1 justify-center space-x-6 pl-10 font-semibold text-lg text-center">
                     <Link to="/" className="text-slate-700">Home</Link>
                     <Link to="/" className="text-slate-700">Chi siamo</Link>
                     <Link to="/" className="text-slate-700">Servizi</Link>
                     <Link to="/" className="text-slate-700">Contattaci</Link>
                 </div>
-                <div className="flex items-center gap-4 p-4 text-xl">
+
+                <div className="flex-1 flex justify-end items-center gap-4 p-4 text-xl">
                     {auth.token == null ? (
                         <Link to="/login" className="text-slate-700">Accedi</Link>
                     ) : (
@@ -37,6 +39,7 @@ const Navbar = () => {
                     )}
                 </div>
             </nav>
+
             <div className="sm:hidden flex justify-between gap-4 bg-secondary p-4">
                 <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-slate-50">
                     ☰
@@ -53,7 +56,7 @@ const Navbar = () => {
                     )}
                 </div>
             </div>
-            <div 
+            <div
                 className={`sm:hidden fixed inset-0 bg-secondary transition-opacity duration-300 ease-in-out z-40 ${isMenuOpen ? "opacity-95" : "opacity-0 pointer-events-none"}`}
                 onClick={() => setIsMenuOpen(false)}
             >
